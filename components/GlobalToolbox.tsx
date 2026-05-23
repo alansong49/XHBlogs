@@ -22,7 +22,12 @@ export default function GlobalToolbox() {
   const activeTool = TOOL_REGISTRY.find(t => t.id === activeToolId);
 
   return (
-    <div className="fixed bottom-6 left-6 z-[9999] flex flex-col items-start gap-3">
+    <motion.div
+      drag
+      dragMomentum={false}
+      style={{ touchAction: 'none' }}
+      whileDrag={{ scale: 1.02 }}
+      className="fixed bottom-6 left-6 z-[9999] flex flex-col items-start gap-3 cursor-grab active:cursor-grabbing">
 
       {/* 展开的面板区域 */}
       <AnimatePresence>
@@ -82,6 +87,6 @@ export default function GlobalToolbox() {
         </svg>
       </button>
 
-    </div>
+    </motion.div>
   );
 }

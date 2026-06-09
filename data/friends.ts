@@ -3,11 +3,11 @@ export interface Friend { id: string; name: string; url: string; description: st
 
 export const friendsData: Friend[] = [
   {
-    "id": "amiya",
-    "name": "罗德岛 PRTS",
-    "description": "记录泰拉大陆的各项数据与前文明遗迹，愿源石的阴霾早日散去。",
-    "avatar": "https://bu.dusays.com/2026/03/24/69c1e38b4c370.jpg",
-    "url": "https://prts.wiki/",
-    "themeColor": "rgba(16, 185, 129, 0.5)"
-  },
+    "id": "friend_1781008641439",
+    "name": "Silas的个人主页",
+    "url": "https://jockersilas.qzz.io/",
+    "avatar": "https://s41.ax1x.com/2026/05/23/pm9iOII.jpg",
+    "description": "个人的导航栏，总结了很多好用的网站",
+    "themeColor": "#6366f1"
+  }
 ];

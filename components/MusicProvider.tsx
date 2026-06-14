@@ -85,8 +85,11 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     const fetchMusicData = async () => {
       try {
         const fetchPromises = siteConfig.cloudMusicIds.map(id =>
-          fetch(`https://api.injahow.cn/meting/?server=netease&type=song&id=${id}`)
-            .then(res => res.json())
+          fetch(`/api/music?id=${id}`)
+            .then(res => {
+              if (!res.ok) return null;
+              return res.json();
+            })
             .catch(() => null)
         );
         const results = await Promise.all(fetchPromises);
@@ -128,21 +131,30 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     setCurrentLyric("♪ 正在缓冲 ♪");
 
     if (currentSong.lrcUrl) {
-      fetch(currentSong.lrcUrl)
-        .then(res => res.text())
-        .then(text => {
-          if (isMounted) {
-             const parsed = parseLrc(text);
-             setLyrics(parsed);
-             // 🌟 3. 将解析好的歌词反向写入到 playlist 的 currentSong 中，供 MusicPage 读取！
-             setPlaylist(prev => {
-                const newPlaylist = [...prev];
-                newPlaylist[currentIndex].lyrics = parsed;
-                return newPlaylist;
-             });
-          }
-        })
-        .catch(() => { if (isMounted) setCurrentLyric("♪ 纯享音乐 ♪"); });
+      // 如果 lrcUrl 是 URL，则 fetch；否则直接作为歌词文本处理
+      const isUrl = currentSong.lrcUrl.startsWith('http');
+      
+      const processLyrics = (text: string) => {
+        if (isMounted) {
+          const parsed = parseLrc(text);
+          setLyrics(parsed);
+          setPlaylist(prev => {
+            const newPlaylist = [...prev];
+            newPlaylist[currentIndex].lyrics = parsed;
+            return newPlaylist;
+          });
+        }
+      };
+
+      if (isUrl) {
+        fetch(currentSong.lrcUrl)
+          .then(res => res.text())
+          .then(text => processLyrics(text))
+          .catch(() => { if (isMounted) setCurrentLyric("♪ 纯享音乐 ♪"); });
+      } else {
+        // 直接是歌词文本
+        processLyrics(currentSong.lrcUrl);
+      }
     }
 
     if (isPlaying && audioRef.current) {

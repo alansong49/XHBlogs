@@ -3,6 +3,14 @@ export interface Friend { id: string; name: string; url: string; description: st
 
 export const friendsData: Friend[] = [
   {
+    "id": "friend_1782493552378",
+    "name": "落叶的博客",
+    "url": "https://www.luoyeye.cn",
+    "avatar": "https://luoyeye.cn/static/images/logo.png",
+    "description": "一个小菜鸡的博客",
+    "themeColor": "#7fe1b3"
+  },
+  {
     "id": "friend_1781008641439",
     "name": "Silas的个人主页",
     "url": "https://jockersilas.qzz.io/",

@@ -66,6 +66,6 @@ export const siteConfig = {
     maxOutputTokens: 150,
     temperature: 0.85,
   },
-  friendLinkApplyFormat: "名称：XingHuiSamaの宝藏之地\n简介：今天我也要学习吗\n链接：https://www.xinghuisama.top\n头像：https://bu.dusays.com/2026/03/24/69c1e38ac1846.jpg",
+  friendLinkApplyFormat: "名称：JockerSilasの宝藏之地\n简介：简单的开发小项目\n链接：https://songnas.dpdns.org/\n头像：https://s41.ax1x.com/2026/05/23/pm9iOII.jpg",
   enableLevelSystem: true,
 };

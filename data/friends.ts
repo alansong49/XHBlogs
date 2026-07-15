@@ -3,6 +3,14 @@ export interface Friend { id: string; name: string; url: string; description: st
 
 export const friendsData: Friend[] = [
   {
+    "id": "friend_1784099908264",
+    "name": "许风诉春朝",
+    "url": "http://8.163.73.95",
+    "avatar": "http://8.163.73.95/images/avatar.jpg",
+    "description": "AI Agent 开发",
+    "themeColor": "#f264e6"
+  },
+  {
     "id": "friend_1782493552378",
     "name": "落叶的博客",
     "url": "https://www.luoyeye.cn",

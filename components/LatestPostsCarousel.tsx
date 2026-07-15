@@ -20,9 +20,13 @@ export default function LatestPostsCarousel({ posts }: { posts: any[] }) {
   if (!posts || posts.length === 0) return null;
 
   const currentPost = posts[currentIndex];
+  const fallbackCover = "https://bu.dusays.com/2026/03/24/69c1e38b346cb.jpg";
+  const coverUrl = currentPost?.cover && typeof currentPost.cover === 'string' && currentPost.cover.trim()
+    ? currentPost.cover.trim()
+    : fallbackCover;
 
   return (
-    <div className="md:col-span-4 rounded-3xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-xl overflow-hidden relative group min-h-[420px] h-full flex flex-col">
+    <div className="md:col-span-4 rounded-3xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-xl overflow-hidden relative group h-[420px]">
 
       {/* 整个卡片的点击跳转区域 */}
       <Link href={currentPost.slug === 'none' ? '#' : `/posts/${currentPost.slug}`} className="absolute inset-0 z-20" aria-label={`阅读 ${currentPost.title}`} />
@@ -37,7 +41,11 @@ export default function LatestPostsCarousel({ posts }: { posts: any[] }) {
           transition={{ duration: 0.8 }}
           className="absolute inset-0 z-0"
         >
-          <img src={currentPost.cover || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Crect fill="%23e2e8f0" width="100" height="100"/%3E%3Ctext fill="%2394a3b8" font-family="sans-serif" font-size="12" x="50" y="50" text-anchor="middle" dominant-baseline="middle"%3EImage%3C/text%3E%3C/svg%3E'} className="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105" alt={currentPost.title} />
+          <img 
+            src={coverUrl} 
+            className="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105" 
+            alt={currentPost.title} 
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
         </motion.div>
       </AnimatePresence>

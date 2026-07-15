@@ -44,13 +44,14 @@ export default function Home() {
         const fullPath = path.join(postsDirectory, fileName);
         const { data, content } = matter(fs.readFileSync(fullPath, 'utf8'));
         const rawDate = data.date || '1970-01-01';
+        const coverValue = (data.cover && typeof data.cover === 'string' && data.cover.trim()) ? data.cover.trim() : siteConfig.defaultPostCover;
         return {
           slug: fileName.replace(/\.md$/, ''),
           ...data,
           title: data.title || '',
           description: data.description || '',
           content: content || '',
-          cover: data.cover || siteConfig.defaultPostCover,
+          cover: coverValue,
           date: rawDate,
           formattedDate: formatUpdateTime(rawDate)
         };

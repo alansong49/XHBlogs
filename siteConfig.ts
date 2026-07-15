@@ -33,7 +33,7 @@ export const siteConfig = {
   social: {
     github: "https://github.com/alansong49",
     gitee: "https://github.com/alansong49",
-    google: "mailto:bilibiliwuwuwu@gmail.com",
+    google: "alansong49@gmail.com",
     email: "2602753839@qq.com",
     qq: "2602753839",
     wechat: "songliufe1396026428",

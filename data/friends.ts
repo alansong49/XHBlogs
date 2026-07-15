@@ -5,8 +5,8 @@ export const friendsData: Friend[] = [
   {
     "id": "friend_1784099908264",
     "name": "许风诉春朝",
-    "url": "http://8.163.73.95",
-    "avatar": "http://8.163.73.95/images/avatar.jpg",
+    "url": "https://8.163.73.95",
+    "avatar": "https://8.163.73.95/images/avatar.jpg",
     "description": "AI Agent 开发",
     "themeColor": "#f264e6"
   },

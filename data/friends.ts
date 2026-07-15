@@ -3,12 +3,12 @@ export interface Friend { id: string; name: string; url: string; description: st
 
 export const friendsData: Friend[] = [
   {
-    "id": "friend_1784099908264",
+    "id": "friend_1784103714543",
     "name": "许风诉春朝",
-    "url": "https://8.163.73.95",
-    "avatar": "https://8.163.73.95/images/avatar.jpg",
+    "url": "http://8.163.73.95",
+    "avatar": "https://s41.ax1x.com/2026/07/15/pmylgQx.jpg",
     "description": "AI Agent 开发",
-    "themeColor": "#f264e6"
+    "themeColor": "#ef64f2"
   },
   {
     "id": "friend_1782493552378",

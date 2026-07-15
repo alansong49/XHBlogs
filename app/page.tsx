@@ -50,6 +50,7 @@ export default function Home() {
           title: data.title || '',
           description: data.description || '',
           content: content || '',
+          cover: data.cover || siteConfig.defaultPostCover,
           date: rawDate,
           formattedDate: formatUpdateTime(rawDate)
         };
